@@ -1,0 +1,32 @@
+From f052b280acbdfd0556e2a04931a827e536c2c782 Mon Sep 17 00:00:00 2001
+From: Daniel Castellanos <luis.daniel.castellanos@intel.com>
+Date: Mon, 25 Feb 2019 11:57:37 -0800
+Subject: [PATCH] ignore glide cmd on build
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7248bbed..0851bb32 100644
+--- a/Makefile
++++ b/Makefile
+@@ -167,13 +167,13 @@ ifndef HAS_GLIDE
+ 	go get -u github.com/Masterminds/glide
+ endif
+ ifndef HAS_GOX
+-	go get -u github.com/mitchellh/gox
++	#go get -u github.com/mitchellh/gox
+ endif
+ 
+ ifndef HAS_GIT
+ 	$(error You must install Git)
+ endif
+-	glide install --strip-vendor
++	#glide install --strip-vendor
+ 	go build -o bin/protoc-gen-go ./vendor/github.com/golang/protobuf/protoc-gen-go
+ 
+ include versioning.mk
+-- 
+2.20.1
+

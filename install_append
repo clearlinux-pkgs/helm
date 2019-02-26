@@ -1,0 +1,5 @@
+cp -r /builddir/build/BUILD/helm-2.12.3/bin %{buildroot}/bin
+install -d %{buildroot}/usr/bin
+install -p -m 755 %{buildroot}/bin/helm %{buildroot}/usr/bin/helm
+install -p -m 755 %{buildroot}/bin/tiller %{buildroot}/usr/bin/tiller
+install -p -m 755 %{buildroot}/bin/protoc-gen-go %{buildroot}/usr/bin/protoc-gen-go

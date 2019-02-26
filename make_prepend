@@ -1,0 +1,4 @@
+export GOPATH=/go
+mkdir -p /go/src/k8s.io
+ln -s /builddir/build/BUILD/helm-2.12.3 /go/src/k8s.io/helm
+cd /go/src/k8s.io/helm
