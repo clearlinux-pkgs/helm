@@ -4,7 +4,7 @@
 #
 Name     : helm
 Version  : 2.12.3
-Release  : 1
+Release  : 2
 URL      : https://github.com/helm/helm/archive/v2.12.3.tar.gz
 Source0  : https://github.com/helm/helm/archive/v2.12.3.tar.gz
 Summary  : No detailed summary available
@@ -52,7 +52,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551208510
+export SOURCE_DATE_EPOCH=1551226800
 ## make_prepend content
 export GOPATH=/go
 mkdir -p /go/src/k8s.io
@@ -63,17 +63,14 @@ make  %{?_smp_mflags} bootstrap build
 
 
 %install
-export SOURCE_DATE_EPOCH=1551208510
+export SOURCE_DATE_EPOCH=1551226800
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/helm
 cp LICENSE %{buildroot}/usr/share/package-licenses/helm/LICENSE
 true
 ## install_append content
-cp -r /builddir/build/BUILD/helm-2.12.3/bin %{buildroot}/bin
 install -d %{buildroot}/usr/bin
-install -p -m 755 %{buildroot}/bin/helm %{buildroot}/usr/bin/helm
-install -p -m 755 %{buildroot}/bin/tiller %{buildroot}/usr/bin/tiller
-install -p -m 755 %{buildroot}/bin/protoc-gen-go %{buildroot}/usr/bin/protoc-gen-go
+install -D -p -m 0755 bin/{helm,tiller,protoc-gen-go} %{buildroot}/usr/bin/
 ## install_append end
 
 %files
@@ -81,9 +78,6 @@ install -p -m 755 %{buildroot}/bin/protoc-gen-go %{buildroot}/usr/bin/protoc-gen
 
 %files bin
 %defattr(-,root,root,-)
-/bin/helm
-/bin/protoc-gen-go
-/bin/tiller
 /usr/bin/helm
 /usr/bin/protoc-gen-go
 /usr/bin/tiller
