@@ -4,7 +4,7 @@
 #
 Name     : helm
 Version  : 2.13.1
-Release  : 3
+Release  : 4
 URL      : https://github.com/helm/helm/archive/v2.13.1.tar.gz
 Source0  : https://github.com/helm/helm/archive/v2.13.1.tar.gz
 Summary  : No detailed summary available
@@ -52,7 +52,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557161741
+export SOURCE_DATE_EPOCH=1557162600
 export LDFLAGS="${LDFLAGS} -fno-lto"
 ## make_prepend content
 export GOPATH=/go
@@ -64,7 +64,7 @@ make  %{?_smp_mflags} bootstrap build
 
 
 %install
-export SOURCE_DATE_EPOCH=1557161741
+export SOURCE_DATE_EPOCH=1557162600
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/helm
 cp LICENSE %{buildroot}/usr/share/package-licenses/helm/LICENSE
