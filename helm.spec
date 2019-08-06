@@ -4,11 +4,11 @@
 #
 Name     : helm
 Version  : 2.13.1
-Release  : 5
+Release  : 6
 URL      : https://github.com/helm/helm/archive/v2.13.1/helm-2.13.1.tar.gz
 Source0  : https://github.com/helm/helm/archive/v2.13.1/helm-2.13.1.tar.gz
 Source1  : http://localhost/cgit/projects/helm-vendor/snapshot/helm-vendor-2.12.3.tar.xz
-Summary  : Container Cluster Manager - CNI plugins
+Summary  : The Kubernetes Package Manager
 Group    : Development/Tools
 License  : AGPL-3.0 Apache-2.0 BSD-2-Clause BSD-3-Clause BSD-3-Clause-Clear CC-BY-SA-4.0 GPL-2.0 GPL-3.0 ISC LGPL-3.0 MIT MPL-2.0
 Requires: helm-bin = %{version}-%{release}
@@ -20,7 +20,8 @@ Patch1: 0002-ignore-glide-cmd-on-build.patch
 Patch2: 0003-Build-fixes.patch
 
 %description
-Binaries required to provision container networking.
+Helm is a tool for managing Kubernetes charts. Charts are packages of
+pre-configured Kubernetes resources.
 
 %package bin
 Summary: bin components for the helm package.
@@ -53,7 +54,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565134834
+export SOURCE_DATE_EPOCH=1565135258
 export GCC_IGNORE_WERROR=1
 export GOPROXY=file:///usr/share/goproxy
 export CFLAGS="$CFLAGS -fno-lto "
@@ -70,7 +71,7 @@ make  %{?_smp_mflags} bootstrap build
 
 
 %install
-export SOURCE_DATE_EPOCH=1565134834
+export SOURCE_DATE_EPOCH=1565135258
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/helm
 cp LICENSE %{buildroot}/usr/share/package-licenses/helm/LICENSE
