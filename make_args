@@ -1,1 +1,1 @@
-bootstrap build
+bootstrap build VERSION=v%{version}
