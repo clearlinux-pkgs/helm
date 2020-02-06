@@ -1,2 +1,2 @@
 install -d %{buildroot}/usr/bin
-install -D -p -m 0755 bin/{helm,tiller,protoc-gen-go} %{buildroot}/usr/bin/
+install -D -p -m 0755 bin/helm %{buildroot}/usr/bin/

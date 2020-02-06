@@ -1,1 +1,1 @@
-bootstrap build VERSION=v%{version}
+-f Makefile build VERSION=v%{version} GOFLAGS='-mod=vendor -v'

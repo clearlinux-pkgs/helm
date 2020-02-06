@@ -1,0 +1,8 @@
+Create vendored dependencies for offline build by updating the
+projects/helm-vendor repository. In helm-vendor, run `make VER="<HelmVer>"` to
+automate most of the process, where <HelmVer> is the upstream helm version
+(without the "v" prefix).
+
+If a hotfix helm-vendor release is ever needed, extend the release version with
+a 4th number. For example, a hotfix release for helm-vendor 3.0.3 would have
+version "3.0.3.1", a second hotfix release would be "3.0.3.2", etc.
