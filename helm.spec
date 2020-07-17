@@ -4,7 +4,7 @@
 #
 Name     : helm
 Version  : 3.2.4
-Release  : 19
+Release  : 20
 URL      : https://github.com/helm/helm/archive/v3.2.4/helm-3.2.4.tar.gz
 Source0  : https://github.com/helm/helm/archive/v3.2.4/helm-3.2.4.tar.gz
 Source1  : http://localhost/cgit/projects/helm-vendor/snapshot/helm-vendor-3.2.0.tar.xz
@@ -49,17 +49,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592368269
+export SOURCE_DATE_EPOCH=1595020738
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-make  %{?_smp_mflags}  -f Makefile build VERSION=v%{version} GOFLAGS='-mod=vendor -v'
+make  %{?_smp_mflags}  -f Makefile build VERSION=v%{version} GOFLAGS='-mod=vendor -buildmode=pie -v'
 
 
 %install
-export SOURCE_DATE_EPOCH=1592368269
+export SOURCE_DATE_EPOCH=1595020738
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/helm
 cp %{_builddir}/helm-3.2.4/LICENSE %{buildroot}/usr/share/package-licenses/helm/e625f9555286c04d831ffbaf5b27a8668f1aa1a7
