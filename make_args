@@ -1,1 +1,1 @@
--f Makefile build VERSION=v%{version} GOFLAGS='-mod=vendor -buildmode=pie -v'
+-f Makefile build VERSION=v%{version} GOFLAGS='-v -mod=vendor'
