@@ -4,7 +4,7 @@
 #
 Name     : helm
 Version  : 3.9.0
-Release  : 57
+Release  : 58
 URL      : https://github.com/helm/helm/archive/v3.9.0/helm-3.9.0.tar.gz
 Source0  : https://github.com/helm/helm/archive/v3.9.0/helm-3.9.0.tar.gz
 Source1  : http://localhost/cgit/projects/helm-vendor/snapshot/helm-vendor-3.9.0.tar.xz
